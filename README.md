@@ -1,0 +1,1 @@
+Docker image files to build the Spin8 WordPress image used in Spin8 project templates. 
