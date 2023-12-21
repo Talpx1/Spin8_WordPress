@@ -20,4 +20,4 @@ wp --allow-root core install \
     --skip-email &&
 wp --allow-root option update siteurl "${WORDPRESS_WEBSITE_URL}" &&
 wp --allow-root rewrite structure "${WORDPRESS_WEBSITE_POST_URL_STRUCTURE}" &&
-composer install --working-dir=${TEST_PLUGIN_ABS_PATH}
+composer install --working-dir=${PLUGIN_ABS_PATH}
