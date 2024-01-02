@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+read -p "PHP Version (default: 8.3): " PHP_VERSION
+
+if [ -z "$PHP_VERSION" ]; then
+    PHP_VERSION="8.3"
+fi
+
+read -p "WebServer Version (default: apache): " WEBSERVER_VERSION
+
+if [ -z "$WEBSERVER_VERSION" ]; then
+    WEBSERVER_VERSION="apache"
+fi
+
+docker build -t talpx1/spin8_wordpress:"$PHP_VERSION"-"$WEBSERVER_VERSION" . &&
+
+if [[ $# -gt 0 && $1 != '--no-push' ]]; then
+    docker push talpx1/spin8_wordpress:"$PHP_VERSION"-"$WEBSERVER_VERSION"
+fi
