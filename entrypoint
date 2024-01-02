@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+groupmod -g "$WWW_GROUP_ID" www-data
+usermod -u "$WWW_USER_ID" -g "$WWW_GROUP_ID" spin8
+
+chown -R "$WWW_USER_ID":"$WWW_GROUP_ID" /var/www/html
+
+gosu "$WWW_USER_ID":"$WWW_GROUP_ID" "bash" "$@"
+
+exec apache2-foreground
