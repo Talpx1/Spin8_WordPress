@@ -11,7 +11,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=UTC
 #installing os tools
 RUN apt-get update -y && apt-get upgrade -y
-RUN apt-get install -y zip unzip git man gpg nano locales gosu
+RUN apt-get install -y zip unzip git man gpg nano locales
 #installing php extensions
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 RUN chmod +x /usr/local/bin/install-php-extensions
