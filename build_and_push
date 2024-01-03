@@ -14,6 +14,8 @@ fi
 
 docker build -t talpx1/spin8_wordpress:"$PHP_VERSION"-"$WEBSERVER_VERSION" . &&
 
-if [[ $# -gt 0 && $1 != '--no-push' ]]; then
-    docker push talpx1/spin8_wordpress:"$PHP_VERSION"-"$WEBSERVER_VERSION"
+if [[ $# -gt 0 && "$1" == '--no-push' ]]; then
+    exit 0
 fi
+
+docker push talpx1/spin8_wordpress:"$PHP_VERSION"-"$WEBSERVER_VERSION"
